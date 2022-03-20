@@ -1,0 +1,7 @@
+<div>
+  <h3><%= category.id %> <%= category.name %> </h3>
+  <%= link_to("Back", categories_path) %>
+  <%= link_to("Edit", edit_category_path(category.id)) %>
+  <%= button_to 'delete', category_path(category.id), method: :delete,
+    form: {data: {turbo_confirm: 'Are you sure?'}} %>
+</div>

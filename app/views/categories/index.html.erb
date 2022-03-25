@@ -1,0 +1,10 @@
+<ul>
+  <% @categories.each do |category| %>
+    <li>
+      <%= render partial: "category", locals: {category: category } %>
+      <%= link_to("Go to detail", category_path(category.id)) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New category", new_category_path %>

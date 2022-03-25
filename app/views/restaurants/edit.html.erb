@@ -1,0 +1,13 @@
+<%= form_with model: @restaurant do |form| %>
+  <%= form.text_field :name %>
+  <%= form.collection_select :category_id, Category.order(:name), :id, :name %>
+  <%= form.collection_select :owner_id, User.order(:name), :id, :name %>
+  <%= form.submit %>
+   <% if @restaurant.errors.any? %>
+      <ul>
+      <% @restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    <% end %>
+<% end %>

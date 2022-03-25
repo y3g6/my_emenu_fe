@@ -70,3 +70,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'pry', '~> 0.13.1'
+gem 'bootstrap', '~> 5.1.3'
+gem 'jquery-rails'

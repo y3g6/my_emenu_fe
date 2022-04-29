@@ -1,41 +1,11 @@
 class RestaurantsController < ApplicationController
-  before_action :load_restaurant, only: [:show, :edit, :update, :destory]
+  before_action :load_restaurant, only: [:show]
 
   def index
     @restaurants = Restaurant.all
   end
 
   def show
-  end
-
-  def new
-    @restaurant = Restaurant.new
-  end
-
-  def create
-    @restaurant = Restaurant.new(restaurant_param)
-    if @restaurant.save
-      redirect_to restaurant_path(@restaurant.id)
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
-
-  def edit
-  end
-
-  def update
-    if @restaurant.update(restaurant_param)
-      redirect_to restaurant_path(@restaurant.id)
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    load_restaurant
-    @restaurant.destroy
-    redirect_to restuaurants_path
   end
 
   private

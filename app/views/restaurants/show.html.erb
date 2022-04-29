@@ -3,8 +3,4 @@
   <h3>Owner: <%= @restaurant.owner.name %></h3>
   <h3>Category: <%= @restaurant.category.name %></h3>
   <%= link_to("Back", restaurants_path) %>
-  <%= link_to("Edit", edit_restaurant_path(@restaurant.id)) %>
-  <%= button_to 'delete', restaurant_path(@restaurant.id), method: :delete,
-    form: {data: {turbo_confirm: 'Are you sure?'}} %>
-
 </div>

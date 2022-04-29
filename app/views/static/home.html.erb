@@ -37,6 +37,14 @@
   </div>
 </header>
 
+<h3>
+  <% if user_signed_in? %>
+    Welcome: <%= current_user.email %>
+    <%= link_to "Signout", destroy_user_session_path %>
+  <% else %>
+  <%= link_to "Go to login", new_user_session_path %>
+  <% end %>
+</h3>
 <!-- Section-->
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">

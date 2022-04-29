@@ -1,0 +1,47 @@
+<div class="row justify-content-center p-5">
+  <div class="col-md-6">
+    <%= form_with model: [:owner, @restaurant], class: "form-control" do |form| %>
+      <div class="mb-3">
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :category_id, class: "form-label" %>
+        <%= form.collection_select :category_id, Category.order(:name), :id, :name, {}, { class: "form-select"} %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :owner_id, class: "form-label" %>
+        <%= form.collection_select :owner_id, User.order(:name), :id, :name, {}, { class: "form-select"} %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :profile, class: "form-label" %>
+        <%= form.file_field :profile, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :cover, class: "form-label" %>
+        <%= form.file_field :cover, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :images, class: "form-label" %>
+        <%= form.file_field :images, class: "form-control", multiple: true %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.submit "Send", class: "btn btn-primary" %>
+      </div>
+
+      <% if @restaurant.errors.any? %>
+        <ul>
+        <% @restaurant.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      <% end %>
+    <% end %>
+  </div>
+</div>
